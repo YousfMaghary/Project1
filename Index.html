@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard Menu</title>
+    <style>
+        /* CSS code for the menu */
+        .menu {
+            background-color: #f8f9fa;
+            padding: 10px;
+            border-radius: 4px;
+        }
+
+        .menu .menu-item {
+            margin-bottom: 10px;
+        }
+
+        .menu .menu-item a {
+            display: flex;
+            align-items: center;
+            color: #212529;
+            text-decoration: none;
+        }
+
+        .menu .menu-item a:hover {
+            background-color: #e9ecef;
+        }
+
+        .menu .menu-item .menu-icon {
+            margin-right: 10px;
+        }
+
+        .menu .menu-sub {
+            margin-top: 5px;
+            padding-left: 20px;
+        }
+
+        .menu .menu-sub .menu-item a {
+            padding-left: 0;
+            color: #6c757d;
+        }
+
+        .menu .menu-sub .menu-item a:hover {
+            background-color: transparent;
+            color: #212529;
+        }
+
+        /* CSS code for the wrapper */
+        .wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .wrapper .search {
+            position: relative;
+            display: flex;
+            align-items: center;
+            margin-right: 20px;
+        }
+
+        .wrapper .search input[type="text"] {
+            width: 250px;
+            padding-left: 40px;
+            border: none;
+            border-radius: 4px;
+            background-color: #f8f9fa;
+            color: #212529;
+        }
+
+        .wrapper .toolbar {
+            display: flex;
+            align-items: center;
+        }
+
+        .wrapper .toolbar button {
+            margin-right: 10px;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            background-color: #0d6efd;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .wrapper .toolbar button:hover {
+            background-color: #0b5ed7;
+        }
+
+        /* CSS code for the datatable */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            padding: 10px;
+            border: 1px solid #dee2e6;
+        }
+
+        th {
+            background-color: #f8f9fa;
+            text-align: left;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+
+        /* CSS code for service data */
+        .service-icon {
+            width: 30px;
+            height: 30px;
+            margin-right: 10px;
+        }
+
+        .service-title {
+            font-weight: bold;
+        }
+
+        .service-description {
+            color: #6c757d;
+        }
+
+        /* CSS code for update and delete buttons */
+        .action-buttons {
+            display: flex;
+            align-items: center;
+        }
+
+        .action-buttons button {
+            margin-right: 5px;
+            padding: 4px 8px;
+            border: none;
+            border-radius: 4px;
+            background-color: #6c757d;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .action-buttons button:hover {
+            background-color: #212529;
+        }
+    </style>
+</head>
+<body>
+<div class="menu">
+    <!-- ... Menu content ... -->
+</div>
+
+<div class="wrapper">
+    <div class="search">
+        <i class="ki-duotone ki-magnifier fs-1 position-absolute ms-6">
+            <span class="path1"></span>
+            <span class="path2"></span>
+        </i>
+        <input type="text" data-kt-docs-table-filter="search" class="form-control form-control-solid w-250px ps-15"
+               placeholder="Search Customers"/>
+    </div>
+
+    <div class="toolbar" data-kt-docs-table-toolbar="base">
+        <button type="button" class="btn btn-light-primary me-3" data-bs-toggle="tooltip" title="Coming Soon">
+            <i class="ki-duotone ki-filter fs-2">
+                <span class="path1"></span>
+                <span class="path2"></span>
+            </i>
+            Filter
+        </button>
+
+        <button type="button" class="btn btn-primary" data-bs-toggle="tooltip" title="Coming Soon">
+            <i class="ki-duotone ki-plus fs-2"></i>
+            Add Service
+        </button>
+    </div>
+</div>
+
+<table id="kt_datatable_example_1" class="table align-middle table-row-dashed fs-6 gy-5">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Icon</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>1</td>
+        <td><img src="service-icon-1.png" alt="Service Icon" class="service-icon"></td>
+        <td class="service-title">Service 1</td>
+        <td class="service-description">Description 1</td>
+        <td class="action-buttons">
+            <button type="button" onclick="editService(1)" class="E">Edit</button>
+            <button type="button" onclick="deleteService(1)" class="D">Delete</button>
+        </td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td><img src="service-icon-2.png" alt="Service Icon" class="service-icon"></td>
+        <td class="service-title">Service 2</td>
+        <td class="service-description">Description 2</td>
+        <td class="action-buttons">
+            <button type="button" onclick="editService(2)">Edit</button>
+            <button type="button" onclick="deleteService(2)">Delete</button>
+        </td>
+    </tr>
+    <!-- Add more service rows as needed -->
+    </tbody>
+</table>
+
+<script>
+    // JavaScript code for menu functionality goes here
+
+    function editService(serviceId) {
+        // Perform edit operation for the service with the specified ID
+        console.log("Edit service: " + serviceId);
+    }
+
+    function deleteService(serviceId) {
+        // Perform delete operation for the service with the specified ID
+        console.log("Delete service: " + serviceId);
+    }
+</script>
+</body>
+</html>
+
+
+
